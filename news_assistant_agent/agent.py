@@ -9,7 +9,7 @@ from google.adk.agents import Agent
 # These 2 below lines are only required to run the agent locally using command 
 # 'uv run python main.py' 
 # because if we deploy to Cloud Run, then we are passing these 2 parameters in the 
-# gcloud run command itself.
+# gcloud run command itself. If we don't run local then it's not required.
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "TRUE"
 os.environ["GOOGLE_CLOUD_PROJECT"] = os.environ.get("GOOGLE_CLOUD_PROJECT", "vjindal-project-ai-basic")
 
