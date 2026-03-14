@@ -2,12 +2,12 @@ Following https://codelabs.developers.google.com/deploy-google-adk-agent-to-clou
 
 (hello_agent) jindal_vivek10@cloudshell:~/projects$ **git clone https://github.com/abhishekr700/Cloud-Run-Day-Workshop-2025.git simple_agent_deploy_cloudrun/**
 
-## (hello_agent) jindal_vivek10@cloudshell:~/projects/simple_agent_deploy_cloudrun/workshop1$ gcloud run deploy news-assistant-agent \
+**gcloud run deploy news-assistant-agent \
   --source . \
   --region us-central1 \
   --project vjindal-project-ai-basic \
   --allow-unauthenticated \
-  --set-env-vars="GOOGLE_GENAI_USE_VERTEXAI=TRUE,GOOGLE_API_KEY="
+  --set-env-vars="GOOGLE_GENAI_USE_VERTEXAI=TRUE,GOOGLE_API_KEY="**
 
 ### The following APIs are not enabled on project [vjindal-project-ai-basic]:
         artifactregistry.googleapis.com
@@ -75,6 +75,6 @@ git config --global user.email "jindal.vivek10@gmail.com"
  ## To delete Cloud run deployed instance
  gcloud config set project vjindal-project-ai-basic
 
- 
+
  jindal_vivek10@cloudshell:~/projects/simple_agent_deploy_cloudrun/workshop1 (vjindal-project-ai-basic)$ gcloud run services delete news-assistant-agent --region us-central1 --quiet
 
