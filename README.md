@@ -1,5 +1,9 @@
 Following https://codelabs.developers.google.com/deploy-google-adk-agent-to-cloud-run?hl=en#0 
 
+### what are we doing here
+1) Set upp a Google Cloud Project for Cloud Run,  build a simple AI agent using Google ADK and vertex AI, define and use local tools within the agent, package the agent using Docker and FASTAPI server and deploy on Google Cloud Run and interact with the deployed agent through a web UI and via curl as client.
+
+
 (hello_agent) jindal_vivek10@cloudshell:~/projects$ **git clone https://github.com/abhishekr700/Cloud-Run-Day-Workshop-2025.git simple_agent_deploy_cloudrun/**
 
 From directory  jindal_vivek10@cloudshell:~/projects/simple_agent_deploy_cloudrun/workshop1
