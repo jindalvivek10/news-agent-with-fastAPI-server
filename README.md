@@ -3,6 +3,16 @@ Following https://codelabs.developers.google.com/deploy-google-adk-agent-to-clou
 ### what are we doing here
 1) Set upp a Google Cloud Project for Cloud Run,  build a simple AI agent using Google ADK and vertex AI, define and use local tools within the agent, package the agent using Docker and FASTAPI server and deploy on Google Cloud Run and interact with the deployed agent through a web UI and via curl as client.
 
+```
+1. The Default Service Account
+When you run gcloud run deploy, Google Cloud automatically attaches a Compute Engine Default Service Account to your container. This identity is "baked into" the environment where your code runs.
+
+2. IAM Permissions
+By default, this service account often has the Editor or Vertex AI User role within your project (vjindal-project-ai-basic). This gives the container permission to call Vertex AI APIs without needing a physical key string.
+
+3. Application Default Credentials (ADC)
+In your code, the Google GenAI SDK (ADK) is designed to look for credentials in a specific order. When it sees GOOGLE_GENAI_USE_VERTEXAI=TRUE, it checks the Metadata Server of the Cloud Run instance. This server provides a temporary OAuth2 access token to your code on the fly.
+```
 
 (hello_agent) jindal_vivek10@cloudshell:~/projects$ **git clone https://github.com/abhishekr700/Cloud-Run-Day-Workshop-2025.git simple_agent_deploy_cloudrun/**
 
@@ -14,6 +24,7 @@ From directory  jindal_vivek10@cloudshell:~/projects/simple_agent_deploy_cloudru
   --project vjindal-project-ai-basic \
   --allow-unauthenticated \
   --set-env-vars="GOOGLE_GENAI_USE_VERTEXAI=TRUE,GOOGLE_API_KEY="**
+
 
 ### The following APIs are not enabled on project [vjindal-project-ai-basic]:
         artifactregistry.googleapis.com
