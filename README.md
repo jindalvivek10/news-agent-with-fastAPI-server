@@ -18,13 +18,14 @@ In your code, the Google GenAI SDK (ADK) is designed to look for credentials in 
 
 From directory  jindal_vivek10@cloudshell:~/projects/simple_agent_deploy_cloudrun/workshop1
 
-**gcloud run deploy news-assistant-agent \
+```
+gcloud run deploy news-assistant-agent \
   --source . \
   --region us-central1 \
   --project vjindal-project-ai-basic \
   --allow-unauthenticated \
-  --set-env-vars="GOOGLE_GENAI_USE_VERTEXAI=TRUE,GOOGLE_API_KEY="**
-
+  --set-env-vars="GOOGLE_GENAI_USE_VERTEXAI=TRUE,GOOGLE_API_KEY="
+```
 
 ### The following APIs are not enabled on project [vjindal-project-ai-basic]:
         artifactregistry.googleapis.com
