@@ -3,6 +3,15 @@ Following https://codelabs.developers.google.com/deploy-google-adk-agent-to-clou
 ### what are we doing here
 1) Set upp a Google Cloud Project for Cloud Run,  build a simple AI agent using Google ADK and vertex AI, define and use local tools within the agent, package the agent using Docker and FASTAPI server and deploy on Google Cloud Run and interact with the deployed agent through a web UI and via curl as client.
 
+How the "Magic" works
+In your FastAPI project, you weren't just creating a blank FastAPI app. You were using a specialized helper function from the ADK library called get_fast_api_app.
+
+The UI is "Inside" the Library: When you set web=True, that function tells the ADK library: "Please take the pre-built chat interface (HTML, CSS, and JavaScript) that is bundled inside the ADK package and serve it automatically on this web server."
+
+Automatic Mounting: Even though you didn't see an index.html file in your folder, the library "mounted" those files into your app instance.
+
+Cloud Run Deployment: Because your main.py was now a complete package (API + UI), when you ran gcloud run deploy, Google Cloud just hosted that "all-in-one" server. When you visited the URL, the server responded by sending that bundled chat UI to your browser.
+
 ```
 1. The Default Service Account
 When you run gcloud run deploy, Google Cloud automatically attaches a Compute Engine Default Service Account to your container. This identity is "baked into" the environment where your code runs.
